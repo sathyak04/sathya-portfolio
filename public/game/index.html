@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capybara Run!</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0; /* Optional: adds a background color for contrast */
+    }
+</style>
+</head>
+<body>
+
+    <script src="https://unpkg.com/kaplay/dist/kaplay.js"></script>
+    <script>
+
+        kaplay({
+            background: [255, 255, 255],
+            debug: false
+        })
+
+        loadSprite("capybara", "capybara.png")
+        loadSprite("orange", "orange.png")
+        loadSprite("triple_orange", "triple_orange.png")
+        loadSprite("logo", "logo.png")
+        loadFont("pixel_font", "pixel.ttf")
+
+        scene("menu", () => {
+
+            // Background start
+
+            function spawnBackground() {
+                add([
+                    circle(rand(100, 400)),
+                    opacity(.5),
+                    z(-10),
+                    pos(width() + 200, rand(0, height())),
+                    scale(rand(.3, .5)),
+                    move(LEFT, 200),
+                    offscreen({destroy: true}),
+                    color(255, 165, 0)
+                ])
+            }
+
+            loop(1.5, () => {
+                spawnBackground()
+            })
+
+            // Background end
+
+            // Logo start
+
+            add([
+                sprite("logo"),
+                scale(.3),
+                pos(500, 25),
+            ])
+
+            // Logo end
+
+            // Instructions start
+
+            add([
+                text("CLICK TO PLAY!", {
+                    font: "pixel_font",
+                    size: 100
+                }),
+                pos(150, 475),
+                color(255, 165, 0),
+            ])
+
+            // Instructions end
+
+            // Box start
+
+            const blinkingBox = add([
+                pos(150, 475),
+            ])
+
+            blinkingBox.add([
+                rect(548, 4),
+                pos(-30, 0),
+                color(255, 165, 0),
+            ])
+
+            blinkingBox.add([
+                rect(548, 4),
+                pos(-30, 96),
+                color(255, 165, 0),
+            ])
+
+            blinkingBox.add([
+                rect(4, 100),
+                pos(-30, 0),
+                color(255, 165, 0),
+            ])
+
+            blinkingBox.add([
+                rect(4, 100),
+                pos(515, 0),
+                color(255, 165, 0),
+            ])
+
+            let timer = 0
+
+            onUpdate(() => {
+                timer += dt()
+                if (timer >= 0.5) {
+                    blinkingBox.hidden = !blinkingBox.hidden
+                    timer = 0
+                }
+            })
+
+            // Box End
+
+            // Logo details start
+
+            add([
+                sprite("triple_orange"),
+                scale(.5),
+                pos(995, 140)
+            ])
+
+            add([
+                sprite("capybara"),
+                scale(.9),
+                pos(465, 170)
+            ])
+
+            // Logo details end
+
+            // Instructions start
+
+            add([
+                text("CONTROLS", {
+                    font: "pixel_font",
+                    size: 80
+                }),
+                pos(980, 355),
+                color(355, 165, 0),
+            ])
+
+            add([
+                rect(300, 10),
+                pos(960, 425),
+                color(355, 165, 0),
+            ])
+
+            add([
+                rect(100, 100, {
+                    color: rgb(255, 255, 255)
+                }),
+                outline(4, rgb(255, 165, 0)),
+                pos(795, 475),
+            ])
+
+            add([
+                rect(100, 100, {
+                    color: rgb(255, 255, 255)
+                }),
+                outline(4, rgb(255, 165, 0)),
+                pos(945, 475),
+            ])
+
+            add([
+                rect(340, 100, {
+                    color: rgb(255, 255, 255)
+                }),
+                outline(4, rgb(255, 165, 0)),
+                pos(1095, 475),
+            ])
+
+            add([
+                text("A", {
+                    font: "pixel_font",
+                    size: 80
+                }),
+                pos(830, 485),
+                color(275, 165, 0),
+            ])
+
+            add([
+                text("LEFT", {
+                    font: "pixel_font",
+                    size: 60
+                }),
+                pos(803, 585),
+                color(0, 0, 0),
+            ])
+
+            add([
+                text("D", {
+                    font: "pixel_font",
+                    size: 80
+                }),
+                pos(980, 485),
+                color(355, 165, 0),
+            ])
+
+            add([
+                text("RIGHT", {
+                    font: "pixel_font",
+                    size: 60
+                }),
+                pos(943, 585),
+                color(0, 0, 0),
+            ])
+
+            add([
+                text("SPACEBAR", {
+                    font: "pixel_font",
+                    size: 80
+                }),
+                pos(1130, 485),
+                color(255, 165, 0),
+            ])
+
+            add([
+                text("JUMP", {
+                    font: "pixel_font",
+                    size: 60
+                }),
+                pos(1215, 585),
+                color(0, 0, 0),
+            ])
+
+        // Instructions end
+        
+        // Menu end
+
+            onClick(() => {
+                go("game")
+            })
+
+        })
+
+        scene("game", () => { 
+
+            // Background start
+
+            function spawnBackground() {
+                add([
+                    circle(rand(100, 400)),
+                    opacity(.5),
+                    z(-10),
+                    pos(width() + 200, rand(0, 400)),
+                    scale(rand(.3, .5)),
+                    move(LEFT, 200),
+                    offscreen({destroy: true}),
+                    color(255, 165, 0)
+                ])
+            }
+
+            loop(1.5, () => {
+                spawnBackground()
+            })
+
+            // Background end
+
+            setGravity(950)
+            
+            // Obstacles start
+
+            function spawnObstacles() {
+                add([
+                    rect(50, 1000),
+                    pos(width(), rand(370, 415)),
+                    area(),
+                    "obstacle",
+                    move(LEFT, 200),
+                    offscreen({destroy: true}),
+                    color(255, 165, 0)
+                ])
+            }
+
+            loop(rand(2, 3.5), () => {
+                spawnObstacles()
+            })
+
+            // Obstacles end
+
+            // Floor start
+
+            add([
+                rect(width(), height()),
+                pos(0, 550),
+                area(),
+                body({ isStatic: true }),
+                color(255, 165, 0),
+            ])
+
+            // Floor end
+
+            // Player start
+
+            player = add([
+                sprite("capybara"),
+                pos(30, 400),
+                area({width: 0, height: 0}),
+                scale(.4),
+                "player",
+                { speed: 300 },
+                body(),
+            ])
+
+            // Player end
+
+            // Food start
+
+            function spawnOrange() {
+                add([
+                    sprite("orange"),
+                    pos(width(), 490),
+                    scale(.2),
+                    "food",
+                    area(),
+                    move(LEFT, 200),
+                    offscreen({destroy: true}),
+                ])
+            }
+
+            loop(rand(3, 5), () => {
+                spawnOrange()
+            })
+
+            // Food end
+
+            // Score start
+
+            let score = 0;
+
+            const scoreText = add([
+                text("Score: " + score, {
+                    font: "pixel_font",
+                    size: 80
+                }),
+                z(100),
+                pos(1175, 645),
+                color(255, 255, 255)
+            ])
+
+            // Score end
+
+            // Collisions start
+
+            onCollide("player", "food", (player, food) => {
+                destroy(food)
+                score += 10
+                scoreText.text = "Score: " + score
+                burp()
+            })
+
+            onCollide("player", "obstacle", (player, food) => {
+                addKaboom(player.pos)
+                destroy(player)
+                player.speed = 0;
+                score = 0;
+                add([
+                    text("GAME OVER", {
+                        font: "pixel_font",
+                        size: 60
+                    }),
+                    pos(725, 200),
+                    color(255, 165, 0),
+                ]);
+                wait(3, () => {
+                    go("menu");
+                });
+            })
+
+            onCollide("food", "obstacle", (food, obstacle) => {
+                destroy(food)
+            })
+
+            // Collisions end
+
+            // Controls start
+
+            onKeyPress("space", () => {
+                if (player.isGrounded()) {
+                    player.jump()
+                }
+            })
+
+            onUpdate(() => {
+                player.pos.x = clamp(player.pos.x, 0, width() - 80)
+            })
+
+            onKeyDown("a", () => {
+                player.move(-player.speed, 0)
+            })
+
+            onKeyDown("d", () => {
+                player.move(player.speed, 0)
+            })
+
+        // Controls end
+        })
+
+        go("menu")
+
+    </script>
+</body>
+</html>
