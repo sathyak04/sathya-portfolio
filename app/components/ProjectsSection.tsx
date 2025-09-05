@@ -11,7 +11,7 @@ const projects = [
 		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles.',
 		image: '/orange_bg.png',
 		projectLink: '/projects/capybara-game',
-		githubLink: '#',
+		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
 	},
 	{
 		id: 2,
@@ -19,7 +19,7 @@ const projects = [
 		description: 'AI-powered Hangman game using TensorFlow for letter prediction, deployed on Google Cloud Run.',
 		image: '/pokeball_bg.png',
 		projectLink: 'https://pokemon-emnist-649222735408.us-central1.run.app',
-		githubLink: '#',
+		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
 	},
 	{
 		id: 3,
