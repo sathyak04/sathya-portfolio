@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         title: '[Your Name] - Software Developer Portfolio',
         description: 'Passionate software developer creating clean, minimal, and effective digital solutions. Explore my work and development philosophy.',
         url: 'https://your-domain.com',
-        siteName: '[Your Name] - Portfolio',
+        siteName: 'Sathya Kumaraguru - Portfolio',
         images: [
             {
                 url: '/og-image.jpg',
