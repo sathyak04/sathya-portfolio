@@ -29,7 +29,7 @@
         loadSprite("orange", "orange.png")
         loadSprite("triple_orange", "triple_orange.png")
         loadSprite("logo", "logo.png")
-        loadFont("pixel_font", "pixel.ttf")
+        loadFont("pixel_font", "../pixel.ttf")
 
         scene("menu", () => {
 
@@ -59,7 +59,7 @@
             add([
                 sprite("logo"),
                 scale(.3),
-                pos(500, 25),
+                pos(375, 25),
             ])
 
             // Logo end
@@ -71,7 +71,7 @@
                     font: "pixel_font",
                     size: 100
                 }),
-                pos(150, 475),
+                pos(80, 475),
                 color(255, 165, 0),
             ])
 
@@ -80,7 +80,7 @@
             // Box start
 
             const blinkingBox = add([
-                pos(150, 475),
+                pos(75, 475),
             ])
 
             blinkingBox.add([
@@ -124,13 +124,13 @@
             add([
                 sprite("triple_orange"),
                 scale(.5),
-                pos(995, 140)
+                pos(875, 140)
             ])
 
             add([
                 sprite("capybara"),
                 scale(.9),
-                pos(465, 170)
+                pos(330, 170)
             ])
 
             // Logo details end
@@ -142,13 +142,13 @@
                     font: "pixel_font",
                     size: 80
                 }),
-                pos(980, 355),
+                pos(880, 355),
                 color(355, 165, 0),
             ])
 
             add([
                 rect(300, 10),
-                pos(960, 425),
+                pos(860, 425),
                 color(355, 165, 0),
             ])
 
@@ -157,7 +157,7 @@
                     color: rgb(255, 255, 255)
                 }),
                 outline(4, rgb(255, 165, 0)),
-                pos(795, 475),
+                pos(695, 475),
             ])
 
             add([
@@ -165,7 +165,7 @@
                     color: rgb(255, 255, 255)
                 }),
                 outline(4, rgb(255, 165, 0)),
-                pos(945, 475),
+                pos(845, 475),
             ])
 
             add([
@@ -173,7 +173,7 @@
                     color: rgb(255, 255, 255)
                 }),
                 outline(4, rgb(255, 165, 0)),
-                pos(1095, 475),
+                pos(995, 475),
             ])
 
             add([
@@ -181,7 +181,7 @@
                     font: "pixel_font",
                     size: 80
                 }),
-                pos(830, 485),
+                pos(730, 485),
                 color(275, 165, 0),
             ])
 
@@ -190,7 +190,7 @@
                     font: "pixel_font",
                     size: 60
                 }),
-                pos(803, 585),
+                pos(703, 585),
                 color(0, 0, 0),
             ])
 
@@ -199,7 +199,7 @@
                     font: "pixel_font",
                     size: 80
                 }),
-                pos(980, 485),
+                pos(880, 485),
                 color(355, 165, 0),
             ])
 
@@ -208,7 +208,7 @@
                     font: "pixel_font",
                     size: 60
                 }),
-                pos(943, 585),
+                pos(843, 585),
                 color(0, 0, 0),
             ])
 
@@ -217,7 +217,7 @@
                     font: "pixel_font",
                     size: 80
                 }),
-                pos(1130, 485),
+                pos(1030, 485),
                 color(255, 165, 0),
             ])
 
@@ -226,7 +226,7 @@
                     font: "pixel_font",
                     size: 60
                 }),
-                pos(1215, 585),
+                pos(1115, 585),
                 color(0, 0, 0),
             ])
 
@@ -341,7 +341,7 @@
                     size: 80
                 }),
                 z(100),
-                pos(1175, 645),
+                pos(1050, 600),
                 color(255, 255, 255)
             ])
 
@@ -356,7 +356,10 @@
                 burp()
             })
 
+            loadSound("bang", "bang.mp3")
+
             onCollide("player", "obstacle", (player, food) => {
+                play("bang")
                 addKaboom(player.pos)
                 destroy(player)
                 player.speed = 0;
@@ -366,7 +369,7 @@
                         font: "pixel_font",
                         size: 60
                     }),
-                    pos(725, 200),
+                    pos(600, 200),
                     color(255, 165, 0),
                 ]);
                 wait(3, () => {
@@ -381,9 +384,11 @@
             // Collisions end
 
             // Controls start
+            loadSound("jump", "jump.mp3")
 
             onKeyPress("space", () => {
                 if (player.isGrounded()) {
+                    play("jump")
                     player.jump()
                 }
             })

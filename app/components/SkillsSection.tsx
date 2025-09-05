@@ -6,14 +6,14 @@ const skills = ['C++', 'Python', 'JavaScript', 'SQL', 'React', 'TensorFlow/Keras
 
 export default function SkillsSection() {
 	return (
-		<section className="py-12 md:py-20 bg-gradient-to-b from-black to-purple-900/20">
+		<section className="py-12 md:py-20 bg-gradient-to-r from-red-600 to-yellow-600">
 			<div className="max-w-7xl mx-auto px-4">
 				<motion.h2
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
-					className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center"
+					className="text-6xl md:text-6xl font-bold mb-8 md:mb-12 text-center pixelFont"
 				>
 					Skills & Technologies
 				</motion.h2>

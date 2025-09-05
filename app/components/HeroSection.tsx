@@ -17,19 +17,19 @@ export default function HeroSection() {
 
 			<div className="relative z-10 text-center">
 			<motion.h1
-				initial={{ y: 50 }}
-				animate={{ y: 0 }}
-				transition={{ duration: 0.8, delay: 0.2 }}
-				className="text-4xl md:text-7xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-600 fix-clipping"
+			initial={{ y: 50 }}
+			animate={{ y: 0 }}
+			transition={{ duration: 0.8, delay: 0.2 }}
+			className="text-4xl md:text-7xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-yellow-600 fix-clipping pixelFont"
 			>
-				Sathya Kumaraguru
+			Sathya Kumaraguru
 			</motion.h1>
 
 				<motion.p
 					initial={{ y: 60, opacity: 0 }}
 					animate={{ y: 20, opacity: 1 }}
 					transition={{ duration: 0.8, delay: 0.4 }}
-					className="text-lg md:text-xl text-gray-300 mb-8 px-1 leading-normal"
+					className="text-3xl md:text-3xl text-white-300 mb-8 px-1 leading-normal pixelFont"
 				>
 					Full Stack Developer & AI Enthusiast
 				</motion.p>
@@ -42,7 +42,7 @@ export default function HeroSection() {
 				className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
 			>
 				<div className="animate-bounce">
-					<svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
 					</svg>
 				</div>
