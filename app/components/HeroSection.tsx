@@ -31,7 +31,7 @@ export default function HeroSection() {
 					transition={{ duration: 0.8, delay: 0.4 }}
 					className="text-3xl md:text-3xl text-white-300 mb-8 px-1 leading-normal pixelFont"
 				>
-					Full Stack Developer & AI Enthusiast
+					Full-Stack Developer & AI Enthusiast
 				</motion.p>
 			</div>
 
