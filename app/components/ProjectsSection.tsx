@@ -23,7 +23,7 @@ const projects = [
 	},
 	{
 		id: 3,
-		title: 'Image Uploader',
+		title: 'Cloud Image Uploader',
 		description: 'Full-Stack image uploader using React & Fastify, integrated with Google Cloud for OAuth, GCS processing, and WebSockets.',
 		image: '/camera_bg.png',
 		projectLink: 'https://www.loom.com/share/ef4d8bebffdd469dbd50bd53634d68a4?sid=ce6bcf48-4483-470b-82d5-b9462efe9604',
