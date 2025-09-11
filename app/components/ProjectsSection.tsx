@@ -16,7 +16,7 @@ const projects = [
 	{
 		id: 2,
 		title: 'Who\'s That Pokemon?',
-		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run.',
+		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run. ** Loading project may take up to a minute **',
 		image: '/pokeball_bg.png',
 		projectLink: 'https://pokemon-emnist-649222735408.us-central1.run.app',
 		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
