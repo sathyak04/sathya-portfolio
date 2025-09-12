@@ -18,7 +18,7 @@
             margin: auto;
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* keeps correct aspect ratio */
+            object-fit: contain; /* keeps aspect ratio */
         }
     </style>
 </head>
@@ -223,11 +223,32 @@
 
             setGravity(950)
 
+            // Floor
+            const floorHeight = height() * 0.1
+            add([
+                rect(width(), floorHeight),
+                pos(0, height() - floorHeight),
+                area(),
+                body({ isStatic: true }),
+                color(255, 165, 0),
+            ])
+
+            // Player (always above floor)
+            let player = add([
+                sprite("capybara"),
+                scale(.4),
+                area({width: 0, height: 0}),
+                pos(width() * 0.05, height() - floorHeight - 120), // 120 = capybara height offset
+                "player",
+                { speed: 300 },
+                body(),
+            ])
+
             // Obstacles
             function spawnObstacles() {
                 add([
                     rect(50, 1000),
-                    pos(width(), rand(height() * 0.65, height() * 0.75)),
+                    pos(width(), height() - floorHeight - 50), // sit on floor
                     area(),
                     "obstacle",
                     move(LEFT, 200),
@@ -237,32 +258,12 @@
             }
             loop(rand(2, 3.5), () => spawnObstacles())
 
-            // Floor
-            add([
-                rect(width(), height() * 0.2),
-                pos(0, height() * 0.9),
-                area(),
-                body({ isStatic: true }),
-                color(255, 165, 0),
-            ])
-
-            // Player
-            let player = add([
-                sprite("capybara"),
-                pos(width() * 0.05, height() * 0.7),
-                area({width: 0, height: 0}),
-                scale(.4),
-                "player",
-                { speed: 300 },
-                body(),
-            ])
-
             // Food
             function spawnOrange() {
                 add([
                     sprite("orange"),
-                    pos(width(), height() * 0.82),
                     scale(.2),
+                    pos(width(), height() - floorHeight - 60), // just above floor
                     "food",
                     area(),
                     move(LEFT, 200),
