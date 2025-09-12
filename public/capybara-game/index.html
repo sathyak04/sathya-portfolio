@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capybara Run!</title>
-<style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #f0f0f0; /* Optional: adds a background color for contrast */
-    }
-</style>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-
     <script src="https://unpkg.com/kaplay/dist/kaplay.js"></script>
     <script>
-
         kaplay({
             background: [255, 255, 255],
             debug: false
@@ -33,8 +31,7 @@
 
         scene("menu", () => {
 
-            // Background start
-
+            // Background
             function spawnBackground() {
                 add([
                     circle(rand(100, 400)),
@@ -47,68 +44,55 @@
                     color(255, 165, 0)
                 ])
             }
+            loop(1.5, () => spawnBackground())
 
-            loop(1.5, () => {
-                spawnBackground()
-            })
-
-            // Background end
-
-            // Logo start
-
+            // Logo
             add([
                 sprite("logo"),
                 scale(.3),
-                pos(310, 25),
+                pos(width() / 2, height() * 0.20),
+                anchor("center")
             ])
 
-            // Logo end
-
-            // Instructions start
-
+            // Instructions
             add([
                 text("CLICK TO PLAY!", {
                     font: "pixel_font",
                     size: 100
                 }),
-                pos(48, 460),
+                pos(width() / 2, height() * 0.9),
+                anchor("center"),
                 color(255, 165, 0),
             ])
 
-            // Instructions end
-
-            // Box start
-
+            // Blinking Box
             const blinkingBox = add([
-                pos(45, 460),
+                pos(width() / 2, height() * 0.89),
+                anchor("center"),
             ])
 
             blinkingBox.add([
                 rect(548, 4),
-                pos(-30, 0),
+                pos(-274, -50),
                 color(255, 165, 0),
             ])
-
             blinkingBox.add([
-                rect(548, 4),
-                pos(-30, 96),
+                rect(551.6, 4),
+                pos(-274, 50),
                 color(255, 165, 0),
             ])
-
             blinkingBox.add([
                 rect(4, 100),
-                pos(-30, 0),
+                pos(-274, -50),
                 color(255, 165, 0),
             ])
-
             blinkingBox.add([
                 rect(4, 100),
-                pos(515, 0),
+                pos(274, -50),
                 color(255, 165, 0),
             ])
 
             let timer = 0
-
             onUpdate(() => {
                 timer += dt()
                 if (timer >= 0.5) {
@@ -117,191 +101,146 @@
                 }
             })
 
-            // Box End
-
-            // Logo details start
-
+            // Logo details
             add([
                 sprite("triple_orange"),
                 scale(.5),
-                pos(810, 140)
+                pos(width() * 0.75, height() * 0.35),
+                anchor("center")
             ])
-
             add([
                 sprite("capybara"),
                 scale(.9),
-                pos(265, 170)
+                pos(width() * 0.27, height() * 0.35),
+                anchor("center")
             ])
 
-            // Logo details end
-
-            // Instructions start
-
+            // Controls header
             add([
                 text("CONTROLS", {
                     font: "pixel_font",
                     size: 80
                 }),
-                pos(820, 340),
-                color(290, 165, 0),
+                pos(width() / 2, height() * 0.45),
+                anchor("center"),
+                color(255, 165, 0),
             ])
-
             add([
                 rect(215, 10),
-                pos(850, 410),
-                color(290, 165, 0),
-            ])
-
-            add([
-                rect(100, 100, {
-                    color: rgb(255, 255, 255)
-                }),
-                outline(4, rgb(255, 165, 0)),
-                pos(605, 460),
-            ])
-
-            add([
-                rect(100, 100, {
-                    color: rgb(255, 255, 255)
-                }),
-                outline(4, rgb(255, 165, 0)),
-                pos(755, 460),
-            ])
-
-            add([
-                rect(340, 100, {
-                    color: rgb(255, 255, 255)
-                }),
-                outline(4, rgb(255, 165, 0)),
-                pos(905, 460),
-            ])
-
-            add([
-                text("A", {
-                    font: "pixel_font",
-                    size: 80
-                }),
-                pos(640, 470),
-                color(250, 165, 0),
-            ])
-
-            add([
-                text("LEFT", {
-                    font: "pixel_font",
-                    size: 60
-                }),
-                pos(613, 570),
-                color(0, 0, 0),
-            ])
-
-            add([
-                text("D", {
-                    font: "pixel_font",
-                    size: 80
-                }),
-                pos(790, 470),
-                color(355, 165, 0),
-            ])
-
-            add([
-                text("RIGHT", {
-                    font: "pixel_font",
-                    size: 60
-                }),
-                pos(753, 570),
-                color(0, 0, 0),
-            ])
-
-            add([
-                text("SPACEBAR", {
-                    font: "pixel_font",
-                    size: 80
-                }),
-                pos(940, 470),
+                pos(width() / 2, height() * 0.5),
+                anchor("center"),
                 color(255, 165, 0),
             ])
 
+            // Controls buttons
+            const buttonY = height() * 0.6
             add([
-                text("JUMP", {
-                    font: "pixel_font",
-                    size: 60
-                }),
-                pos(1010, 570),
+                rect(100, 100, { color: rgb(255, 255, 255) }),
+                outline(4, rgb(255, 165, 0)),
+                pos(width() * 0.28, buttonY),
+                anchor("center")
+            ])
+            add([
+                rect(100, 100, { color: rgb(255, 255, 255) }),
+                outline(4, rgb(255, 165, 0)),
+                pos(width() * 0.41, buttonY),
+                anchor("center")
+            ])
+            add([
+                rect(340, 100, { color: rgb(255, 255, 255) }),
+                outline(4, rgb(255, 165, 0)),
+                pos(width() * 0.63, buttonY),
+                anchor("center")
+            ])
+
+            // Labels
+            add([
+                text("A", { font: "pixel_font", size: 80 }),
+                pos(width() * 0.28, buttonY),
+                anchor("center"),
+                color(255, 165, 0),
+            ])
+            add([
+                text("LEFT", { font: "pixel_font", size: 60 }),
+                pos(width() * 0.28, buttonY + 85),
+                anchor("center"),
+                color(0, 0, 0),
+            ])
+            add([
+                text("D", { font: "pixel_font", size: 80 }),
+                pos(width() * 0.41, buttonY),
+                anchor("center"),
+                color(255, 165, 0),
+            ])
+            add([
+                text("RIGHT", { font: "pixel_font", size: 60 }),
+                pos(width() * 0.41, buttonY + 85),
+                anchor("center"),
+                color(0, 0, 0),
+            ])
+            add([
+                text("SPACEBAR", { font: "pixel_font", size: 80 }),
+                pos(width() * 0.63, buttonY),
+                anchor("center"),
+                color(255, 165, 0),
+            ])
+            add([
+                text("JUMP", { font: "pixel_font", size: 60 }),
+                pos(width() * 0.63, buttonY + 85),
+                anchor("center"),
                 color(0, 0, 0),
             ])
 
-        // Instructions end
-        
-        // Menu end
-
-            onClick(() => {
-                go("game")
-            })
-
+            onClick(() => go("game"))
         })
 
         scene("game", () => { 
+            let speedMultiplier = 1
 
-            // Background start
-
+            // Background
             function spawnBackground() {
                 add([
                     circle(rand(100, 400)),
                     opacity(.5),
                     z(-10),
-                    pos(width() + 200, rand(0, 400)),
+                    pos(width() + 200, rand(0, height())),
                     scale(rand(.3, .5)),
-                    move(LEFT, 200),
+                    move(LEFT, 200 * speedMultiplier),
                     offscreen({destroy: true}),
                     color(255, 165, 0)
                 ])
             }
-
-            loop(1.5, () => {
-                spawnBackground()
-            })
-
-            // Background end
+            loop(1.5, () => spawnBackground())
 
             setGravity(950)
-            
-            // Obstacles start
 
+            // Obstacles
             function spawnObstacles() {
                 add([
                     rect(50, 1000),
-                    pos(width(), rand(370, 415)),
+                    pos(width(), rand(height() * 0.65, height() * 0.75)),
                     area(),
                     "obstacle",
-                    move(LEFT, 200),
+                    move(LEFT, 200 * speedMultiplier),
                     offscreen({destroy: true}),
                     color(255, 165, 0)
                 ])
             }
+            loop(rand(2, 3.5), () => spawnObstacles())
 
-            loop(rand(2, 3.5), () => {
-                spawnObstacles()
-            })
-
-            // Obstacles end
-
-            // Floor start
-
+            // Floor
             add([
-                rect(width(), height()),
-                pos(0, 550),
+                rect(width(), height() * 0.2),
+                pos(0, height() * 0.9),
                 area(),
                 body({ isStatic: true }),
                 color(255, 165, 0),
             ])
 
-            // Floor end
-
-            // Player start
-
-            player = add([
+            // Player
+            let player = add([
                 sprite("capybara"),
-                pos(30, 400),
+                pos(width() * 0.05, height() * 0.7),
                 area({width: 0, height: 0}),
                 scale(.4),
                 "player",
@@ -309,107 +248,87 @@
                 body(),
             ])
 
-            // Player end
-
-            // Food start
-
+            // Food
             function spawnOrange() {
                 add([
                     sprite("orange"),
-                    pos(width(), 490),
+                    pos(width(), height() * 0.82),
                     scale(.2),
                     "food",
                     area(),
-                    move(LEFT, 200),
+                    move(LEFT, 200 * speedMultiplier),
                     offscreen({destroy: true}),
                 ])
             }
+            loop(rand(3, 5), () => spawnOrange())
 
-            loop(rand(3, 5), () => {
-                spawnOrange()
-            })
-
-            // Food end
-
-            // Score start
-
-            let score = 0;
-
+            // Score
+            let score = 0
             const scoreText = add([
                 text("Score: " + score, {
                     font: "pixel_font",
                     size: 40
                 }),
                 z(100),
-                pos(1050, 575),
-                color(255, 255, 255)
+                pos(width() / 2, height() * 0.05),
+                anchor("center"),
+                color(0, 0, 0)
             ])
 
-            // Score end
-
-            // Collisions start
-
+            // Collisions
             onCollide("player", "food", (player, food) => {
                 destroy(food)
                 score += 10
                 scoreText.text = "Score: " + score
+
+                // Every 50 points increase game speed
+                if (score % 50 === 0) {
+                    speedMultiplier += 0.2
+                    player.speed += 30
+                }
+
                 burp()
             })
 
             loadSound("bang", "bang.mp3")
-
             onCollide("player", "obstacle", (player, food) => {
                 play("bang")
                 addKaboom(player.pos)
                 destroy(player)
-                player.speed = 0;
-                score = 0;
+                player.speed = 0
+                score = 0
                 add([
                     text("GAME OVER", {
                         font: "pixel_font",
                         size: 60
                     }),
-                    pos(575, 200),
+                    pos(width() / 2, height() / 2),
+                    anchor("center"),
                     color(255, 165, 0),
-                ]);
-                wait(3, () => {
-                    go("menu");
-                });
+                ])
+                wait(3, () => go("menu"))
             })
 
             onCollide("food", "obstacle", (food, obstacle) => {
                 destroy(food)
             })
 
-            // Collisions end
-
-            // Controls start
+            // Controls
             loadSound("jump", "jump.mp3")
-
             onKeyPress("space", () => {
                 if (player.isGrounded()) {
                     play("jump")
                     player.jump()
                 }
             })
-
             onUpdate(() => {
                 player.pos.x = clamp(player.pos.x, 0, width() - 80)
             })
-
-            onKeyDown("a", () => {
-                player.move(-player.speed, 0)
-            })
-
-            onKeyDown("d", () => {
-                player.move(player.speed, 0)
-            })
-
-        // Controls end
+            onKeyDown("a", () => player.move(-player.speed, 0))
+            onKeyDown("d", () => player.move(player.speed, 0))
         })
 
         go("menu")
-
     </script>
 </body>
 </html>
