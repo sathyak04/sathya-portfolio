@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capybara Run!</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        html, body {
             margin: 0;
-            background-color: #f0f0f0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        canvas {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* keeps correct aspect ratio */
         }
     </style>
 </head>
@@ -20,7 +27,12 @@
     <script>
         kaplay({
             background: [255, 255, 255],
-            debug: false
+            debug: false,
+            width: 1280,   // base design width
+            height: 720,   // base design height
+            scale: 1,
+            stretch: false,   // prevent weird zoom/stretch
+            letterbox: true,  // keep everything visible
         })
 
         loadSprite("capybara", "capybara.png")
@@ -30,7 +42,6 @@
         loadFont("pixel_font", "../pixel.ttf")
 
         scene("menu", () => {
-
             // Background
             function spawnBackground() {
                 add([
@@ -195,8 +206,6 @@
         })
 
         scene("game", () => { 
-            let speedMultiplier = 1
-
             // Background
             function spawnBackground() {
                 add([
@@ -205,7 +214,7 @@
                     z(-10),
                     pos(width() + 200, rand(0, height())),
                     scale(rand(.3, .5)),
-                    move(LEFT, 200 * speedMultiplier),
+                    move(LEFT, 200),
                     offscreen({destroy: true}),
                     color(255, 165, 0)
                 ])
@@ -221,7 +230,7 @@
                     pos(width(), rand(height() * 0.65, height() * 0.75)),
                     area(),
                     "obstacle",
-                    move(LEFT, 200 * speedMultiplier),
+                    move(LEFT, 200),
                     offscreen({destroy: true}),
                     color(255, 165, 0)
                 ])
@@ -256,7 +265,7 @@
                     scale(.2),
                     "food",
                     area(),
-                    move(LEFT, 200 * speedMultiplier),
+                    move(LEFT, 200),
                     offscreen({destroy: true}),
                 ])
             }
@@ -280,13 +289,6 @@
                 destroy(food)
                 score += 10
                 scoreText.text = "Score: " + score
-
-                // Every 50 points increase game speed
-                if (score % 50 === 0) {
-                    speedMultiplier += 0.2
-                    player.speed += 30
-                }
-
                 burp()
             })
 
