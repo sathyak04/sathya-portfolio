@@ -246,9 +246,10 @@
 
             // Obstacles
             function spawnObstacles() {
+                const obstacleHeight = rand(100, 200) // random height for variety
                 add([
-                    rect(50, 1000),
-                    pos(width(), height() - floorHeight - 50), // sit on floor
+                    rect(50, obstacleHeight),
+                    pos(width(), height() - floorHeight - obstacleHeight), // bottom sits on floor
                     area(),
                     "obstacle",
                     move(LEFT, 200),
