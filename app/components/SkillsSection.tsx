@@ -4,16 +4,13 @@ import { motion } from 'framer-motion';
 
 const skills = [
   // Programming Languages
-  'Python', 'C++', 'JavaScript', 'SQL', 'C#', 'C', 'HTML',
+  'Python', 'C++', 'JavaScript', 'SQL', 'C#', 'C', 'HTML', 'Java', 'CSS',
 
   // Frameworks & Libraries
   'TensorFlow', 'Keras', 'Scikit-learn', 'React', 'ASP.NET', 'Pandas', 'NumPy', 'Matplotlib', 'KAPLAY',
 
   // Tools & Platforms
-  'Git', 'GitHub', 'GitLab', 'Linux', 'Windows', 'Visual Studio Code', 'Visual Studio', 'PyCharm', 'Jupyter Notebook',
-
-  // Soft Skills
-  'Problem Solving', 'Teamwork', 'Collaboration', 'Communication', 'Critical Thinking', 'Adaptability', 'Time Management', 'Leadership'
+  'Git/GitHub/GitLab', 'Linux', 'Windows', 'Visual Studio Code/Visual Studio', 'PyCharm', 'Jupyter Notebook',
 ];
 
 export default function SkillsSection() {
