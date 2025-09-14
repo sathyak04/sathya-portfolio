@@ -18,7 +18,7 @@ The game structure also highlights **object-oriented programming (OOP)** ideas�
 ## 🛠️ Tech Stack
 - **JavaScript** → Game logic and mechanics, with OOP-inspired design for entities  
 - **HTML + CSS** → Canvas rendering and styling  
-- **Kaboom.js (Kaplay)** → Game engine for physics, sprites, and controls  
+- **Kaboom.js (KAPLAY)** → Game engine for physics, sprites, and controls  
 
 ---
 
