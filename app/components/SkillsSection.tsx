@@ -10,7 +10,7 @@ const skills = [
   'TensorFlow', 'Keras', 'Scikit-learn', 'React', 'ASP.NET', 'Pandas', 'NumPy', 'Matplotlib', 'KAPLAY',
 
   // Tools & Platforms
-  'Git/GitHub/GitLab', 'Linux', 'Windows', 'Visual Studio Code/Visual Studio', 'PyCharm', 'Jupyter Notebook',
+  'Git/GitHub/GitLab', 'Linux', 'Windows', 'Visual Studio Code', 'PyCharm', 'Jupyter Notebook',
 ];
 
 export default function SkillsSection() {
