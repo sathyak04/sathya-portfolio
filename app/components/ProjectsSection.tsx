@@ -8,7 +8,7 @@ const projects = [
 	{
 		id: 1,
 		title: 'Capybara Run!',
-		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library.',
+		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser (\'CTRL\' + \'-\' and \'CTRL\' + \'+\') screen to get best display **',
 		image: '/orange_bg.png',
 		projectLink: '/projects/capybara-game',
 		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
