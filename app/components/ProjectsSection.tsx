@@ -31,8 +31,11 @@ const projects = [
 	},
 	{
 		id: 4,
-		title: 'Coming Soon...',
-		image: '/loading_bg.png',
+		title: 'The MushROOMS',
+		description: 'Pygame maze game on a graph data structure, using randomized DFS and A* pathfinding algorithms implemented with stack and priority queues.',
+		image: '/mushroom_bg.png',
+		projectLink: 'https://sathyak04.github.io/the-mushrooms/',
+		githubLink: 'https://github.com/sathyak04/the-mushrooms',
 	},
 ];
 
