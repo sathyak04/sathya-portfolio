@@ -1,4 +1,4 @@
-# Capybara Run! 🐹🍊
+# Capybara Run! 🍊
 
 A fast-paced **2D side-scrolling game** built with **JavaScript, HTML, and [Kaboom.js](https://kaboomjs.com/)** (Kaplay).  
 You play as a capybara, dodging obstacles and eating oranges to keep running.  
