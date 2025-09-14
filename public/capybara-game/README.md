@@ -1,6 +1,6 @@
 # Capybara Run! 🍊
 
-A fast-paced **2D side-scrolling game** built with **JavaScript, HTML, and [Kaboom.js](https://kaboomjs.com/)** (KAPLAY).  
+A fast-paced **2D side-scrolling game** built with **JavaScript, HTML, and Kaboom.js (KAPLAY)**.  
 You play as a capybara, dodging obstacles and eating oranges to keep running.  
 Simple mechanics, smooth gameplay, and a playful twist on the classic endless runner genre.  
 The game structure also highlights **object-oriented programming (OOP)** ideas—treating the player, obstacles, and collectibles as objects with their own properties and behaviors, making the code easier to extend and maintain.  
