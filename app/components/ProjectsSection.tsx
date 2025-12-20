@@ -7,14 +7,33 @@ import Link from 'next/link';
 const projects = [
 	{
 		id: 1,
-		title: 'Capybara Run!',
-		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser (\'CTRL\' + \'-\' and \'CTRL\' + \'+\') screen to get best display **',
-		image: '/orange_bg.png',
-		projectLink: '/projects/capybara-game',
-		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
+		title: 'Spango',
+		description: (
+			<>
+				Immersive 3D language learning platform for Spanish, French, and Hindi. Features a gamified solar system interface built with Three.js, interactive pronunciation practice, and an unlockable cosmetic shop.{' '}
+				<Link
+					href="https://acmhacks-2025.devpost.com/project-gallery"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-yellow-400 hover:text-yellow-300 font-bold"
+				>
+					Hackathon Winner
+				</Link>
+			</>
+		),
+		image: '/earth_bg.png',
+		projectLink: 'https://spango.vercel.app/',
+		githubLink: 'https://github.com/sathyak04/spango',
 	},
 	{
 		id: 2,
+		title: 'ACM at UCSC Website',
+		description: 'I largely developed this official website for the Association for Computing Machinery (ACM) student chapter at UC Santa Cruz. A hub for CS community, events, and resources.',
+		image: '/acm_bg.png',
+		projectLink: 'https://acmucsc.vercel.app/',
+	},
+	{
+		id: 3,
 		title: 'Who\'s That Pokemon?',
 		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run. ** Loading project may take up to a minute **',
 		image: '/pokeball_bg.png',
@@ -22,7 +41,7 @@ const projects = [
 		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'Cloud Image Uploader',
 		description: 'Full-Stack image uploader using React & Fastify, integrated with Google Cloud for OAuth, GCS processing, and WebSockets.',
 		image: '/camera_bg.png',
@@ -30,12 +49,20 @@ const projects = [
 		githubLink: 'https://github.com/sathyak04/upload-application',
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'The MushROOMS',
 		description: 'Pygame maze game on a graph data structure, using randomized DFS and A* pathfinding algorithms implemented with stack and priority queues. ** Loading project may take up to a minute **',
 		image: '/mushroom_bg.png',
 		projectLink: 'https://sathyak04.github.io/the-mushrooms/',
 		githubLink: 'https://github.com/sathyak04/the-mushrooms',
+	},
+	{
+		id: 6,
+		title: 'Capybara Run!',
+		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser (\'CTRL\' + \'-\' and \'CTRL\' + \'+\') screen to get best display **',
+		image: '/orange_bg.png',
+		projectLink: '/projects/capybara-game',
+		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
 	},
 ];
 
