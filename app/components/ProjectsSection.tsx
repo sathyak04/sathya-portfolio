@@ -4,7 +4,18 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const projects = [
+import { ReactNode } from 'react';
+
+interface Project {
+	id: number;
+	title: string;
+	description: string | ReactNode;
+	image: string;
+	projectLink: string;
+	githubLink?: string;
+}
+
+const projects: Project[] = [
 	{
 		id: 1,
 		title: 'Spango',
@@ -34,7 +45,7 @@ const projects = [
 	},
 	{
 		id: 3,
-		title: 'Who\'s That Pokemon?',
+		title: "Who's That Pokemon?",
 		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run. ** Loading project may take up to a minute **',
 		image: '/pokeball_bg.png',
 		projectLink: 'https://pokemon-emnist-649222735408.us-central1.run.app',
@@ -59,7 +70,7 @@ const projects = [
 	{
 		id: 6,
 		title: 'Capybara Run!',
-		description: '2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser (\'CTRL\' + \'-\' and \'CTRL\' + \'+\') screen to get best display **',
+		description: "2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser ('CTRL' + '-' and 'CTRL' + '+') screen to get best display **",
 		image: '/orange_bg.png',
 		projectLink: '/projects/capybara-game',
 		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
