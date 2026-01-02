@@ -36,7 +36,7 @@ const projects: Project[] = [
 	{
 		id: 3,
 		title: "Who's That Pokemon?",
-		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run. ** Loading project may take up to a minute **',
+		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run.',
 		image: '/pokeball_bg.png',
 		projectLink: 'https://whos-that-pokemon-455795788738.us-central1.run.app/',
 		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
@@ -52,7 +52,12 @@ const projects: Project[] = [
 	{
 		id: 5,
 		title: 'The MushROOMS',
-		description: 'Pygame maze game on a graph data structure, using randomized DFS and A* pathfinding algorithms implemented with stack and priority queues. ** Loading project may take up to a minute **',
+		description: (
+			<span>
+				Pygame maze game on a graph data structure, using randomized DFS and A* pathfinding algorithms implemented with stack and priority queues.{' '}
+				<span className="text-red-400">Loading project may take up to a minute</span>
+			</span>
+		),
 		image: '/mushroom_bg.png',
 		projectLink: 'https://sathyak04.github.io/the-mushrooms/',
 		githubLink: 'https://github.com/sathyak04/the-mushrooms',
