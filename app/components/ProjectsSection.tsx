@@ -13,28 +13,18 @@ interface Project {
 	image: string;
 	projectLink: string;
 	githubLink?: string;
+	hackathonLink?: string;
 }
 
 const projects: Project[] = [
 	{
 		id: 1,
 		title: 'Spango',
-		description: (
-			<>
-				Immersive 3D language learning platform for Spanish, French, and Hindi. Features a gamified solar system interface built with Three.js, interactive pronunciation practice, and an unlockable cosmetic shop.{' '}
-				<Link
-					href="https://acmhacks-2025.devpost.com/project-gallery"
-					target="_blank"
-					rel="noopener noreferrer"
-					className="text-yellow-400 hover:text-yellow-300 font-bold"
-				>
-					Hackathon Winner
-				</Link>
-			</>
-		),
+		description: 'Immersive 3D language learning platform for Spanish, French, and Hindi. Features a gamified solar system interface built with Three.js, interactive pronunciation practice, and an unlockable cosmetic shop.',
 		image: '/earth_bg.png',
 		projectLink: 'https://spango.vercel.app/',
 		githubLink: 'https://github.com/sathyak04/spango',
+		hackathonLink: 'https://acmhacks-2025.devpost.com/project-gallery',
 	},
 	{
 		id: 2,
@@ -48,7 +38,7 @@ const projects: Project[] = [
 		title: "Who's That Pokemon?",
 		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run. ** Loading project may take up to a minute **',
 		image: '/pokeball_bg.png',
-		projectLink: 'https://pokemon-emnist-649222735408.us-central1.run.app',
+		projectLink: 'https://whos-that-pokemon-455795788738.us-central1.run.app/',
 		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
 	},
 	{
@@ -70,7 +60,7 @@ const projects: Project[] = [
 	{
 		id: 6,
 		title: 'Capybara Run!',
-		description: "2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. ** May have to adjust browser ('CTRL' + '-' and 'CTRL' + '+') screen to get best display **",
+		description: "2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. Features progressive difficulty, responsive design, and smooth gameplay.",
 		image: '/orange_bg.png',
 		projectLink: '/projects/capybara-game',
 		githubLink: 'https://github.com/sathyak04/my-portfolio/tree/main/public/capybara-game',
@@ -111,7 +101,18 @@ export default function ProjectsSection() {
 						<div className="absolute inset-0 p-6 flex flex-col justify-end">
 							<h3 className="text-xl mb-2 pixelFont text-5xl md:text-4xl text-red-400">{project.title}</h3>
 							<p className="text-white-300 mb-4">{project.description}</p>
-							<div className="flex gap-4">
+							<div className="flex gap-4 flex-wrap">
+								{project.hackathonLink && (
+									<Link
+										href={project.hackathonLink}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<div className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-yellow-400 font-bold border border-yellow-400/30">
+											Hackathon Winner
+										</div>
+									</Link>
+								)}
 								{project.projectLink && (
 									<Link
 										href={project.projectLink}

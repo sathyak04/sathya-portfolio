@@ -7,14 +7,15 @@ export const metadata = {
 
 const MyGamePage = () => {
   return (
-    <main>
-      <iframe
-        src="/capybara-game/index.html"
-        title="Capybara Run!"
-        width="100%"
-        height="800px"
-        style={{ border: "none" }}
-      ></iframe>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
+      <div className="w-full max-w-4xl aspect-video rounded-lg overflow-hidden shadow-lg border-4 border-orange-400">
+        <iframe
+          src="/capybara-game/index.html"
+          title="Capybara Run!"
+          className="w-full h-full"
+          style={{ border: "none" }}
+        ></iframe>
+      </div>
     </main>
   );
 };
