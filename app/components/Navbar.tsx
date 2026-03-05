@@ -39,7 +39,7 @@ export default function Navbar() {
                 </svg>
             </a>
 
-            <a href="/sathya_kumaraguru_resume.pdf" target="_blank" className="hover:scale-110 transition-all duration-300" title="Resume">
+            <a href="/sathya_kumaraguru_resume.pdf?v=2" target="_blank" className="hover:scale-110 transition-all duration-300" title="Resume">
                 <svg className="w-6 h-6" fill="url(#navGradient)" viewBox="0 0 20 20">
                     <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
                     <path d="M8 11a1 1 0 100 2h4a1 1 0 100-2H8z" />
