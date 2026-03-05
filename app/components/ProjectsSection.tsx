@@ -11,7 +11,9 @@ interface Project {
 	title: string;
 	description: string | ReactNode;
 	image: string;
-	projectLink: string;
+	imageClassName?: string;
+	bgClassName?: string;
+	projectLink?: string;
 	githubLink?: string;
 	hackathonLink?: string;
 }
@@ -19,22 +21,40 @@ interface Project {
 const projects: Project[] = [
 	{
 		id: 1,
+		title: 'Gopher',
+		description: 'Groq AI-powered interactive travel planner using Next.js & Vercel AI SDK with the Google Maps API, featuring a Framer Motion frontend and Neon Postgres database.',
+		image: '/gopher_bg.png',
+		projectLink: 'https://gopher-eight.vercel.app/',
+		githubLink: 'https://github.com/sathyak04/gopher',
+	},
+	{
+		id: 2,
+		title: 'MutationMap',
+		description: 'Interactive 3D cancer mutation analysis platform using React & Node.js, featuring a React Three Fiber visualization frontend, Groq-powered AI chat integration, and a Python/Scikit-Learn machine learning pipeline for mutation impact prediction.',
+		image: '/mutation_bg.png',
+		imageClassName: 'object-contain scale-[1.30] rotate-45 group-hover:scale-[1.35]',
+		bgClassName: 'bg-white',
+		projectLink: 'https://biohacks-1.onrender.com/',
+		githubLink: 'https://github.com/sathyak04/biohacks',
+	},
+	{
+		id: 3,
 		title: 'Spango',
-		description: 'Immersive 3D language learning platform for Spanish, French, and Hindi. Features a gamified solar system interface built with Three.js, interactive pronunciation practice, and an unlockable cosmetic shop.',
+		description: 'Immersive 3D language learning platform using React & Three.js, featuring an interactive planetary visualization frontend, Web Speech API integration for real-time pronunciation feedback, and a Firebase-backed progression system with unlockable cosmetic themes.',
 		image: '/earth_bg.png',
 		projectLink: 'https://spango.vercel.app/',
 		githubLink: 'https://github.com/sathyak04/spango',
 		hackathonLink: 'https://acmhacks-2025.devpost.com/project-gallery',
 	},
 	{
-		id: 2,
+		id: 4,
 		title: 'ACM at UCSC Website',
-		description: 'I largely developed this official website for the Association for Computing Machinery (ACM) student chapter at UC Santa Cruz. A hub for CS community, events, and resources.',
+		description: 'Full-stack UCSC ACM chapter platform using React & Express.js, featuring a Tailwind CSS and Framer Motion frontend, Google Calendar API-powered event scheduling, and a MongoDB secure authentication backend for member profile management.',
 		image: '/acm_bg.png',
 		projectLink: 'https://acmucsc.vercel.app/',
 	},
 	{
-		id: 3,
+		id: 5,
 		title: "Who's That Pokemon?",
 		description: 'AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run.',
 		image: '/pokeball_bg.png',
@@ -42,7 +62,7 @@ const projects: Project[] = [
 		githubLink: 'https://github.com/sathyak04/pokemon-emnist',
 	},
 	{
-		id: 4,
+		id: 6,
 		title: 'Cloud Image Uploader',
 		description: 'Full-Stack image uploader using React & Fastify, integrated with Google Cloud for OAuth, GCS processing, and WebSockets.',
 		image: '/camera_bg.png',
@@ -50,7 +70,7 @@ const projects: Project[] = [
 		githubLink: 'https://github.com/sathyak04/upload-application',
 	},
 	{
-		id: 5,
+		id: 7,
 		title: 'The MushROOMS',
 		description: (
 			<span>
@@ -63,7 +83,7 @@ const projects: Project[] = [
 		githubLink: 'https://github.com/sathyak04/the-mushrooms',
 	},
 	{
-		id: 6,
+		id: 8,
 		title: 'Capybara Run!',
 		description: "2D side-scrolling runner game in JavaScript and HTML, utilizing object-oriented programming principles with KAPLAY library. Features progressive difficulty, responsive design, and smooth gameplay.",
 		image: '/orange_bg.png',
@@ -94,13 +114,13 @@ export default function ProjectsSection() {
 						viewport={{ once: true }}
 						transition={{ duration: 0.6, delay: project.id * 0.1 }}
 						whileHover={{ scale: 1.02 }}
-						className="group relative aspect-video bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-xl overflow-hidden"
+						className={`group relative aspect-video rounded-xl overflow-hidden ${project.bgClassName || 'bg-gradient-to-br from-purple-900/50 to-blue-900/50'}`}
 					>
 						<Image
 							src={project.image}
 							alt={project.title}
 							fill
-							className="object-cover transition-transform group-hover:scale-105"
+							className={`transition-transform ${project.imageClassName || 'object-cover group-hover:scale-105'}`}
 						/>
 						<div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300" />
 						<div className="absolute inset-0 p-6 flex flex-col justify-end">
