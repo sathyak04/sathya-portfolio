@@ -1,7 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+
 export default function Navbar() {
+    const pathname = usePathname();
+
+    if (pathname === '/projects/capybara-game') {
+        return null;
+    }
+
     return (
         <motion.nav
             initial={{ y: -100, opacity: 0 }}
@@ -13,8 +21,8 @@ export default function Navbar() {
             <svg width="0" height="0" className="absolute">
                 <defs>
                     <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#2dd4bf" /> {/* teal-400 */}
-                        <stop offset="100%" stopColor="#fb7185" /> {/* rose-400 */}
+                        <stop offset="0%" stopColor="#2563eb" /> {/* blue-600 */}
+                        <stop offset="100%" stopColor="#60a5fa" /> {/* blue-400 */}
                     </linearGradient>
                 </defs>
             </svg>

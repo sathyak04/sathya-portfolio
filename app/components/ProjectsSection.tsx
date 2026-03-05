@@ -35,7 +35,7 @@ const projects: Project[] = [
 		description: (
 			<span>
 				Interactive 3D cancer mutation analysis platform using React & Node.js, featuring a React Three Fiber visualization frontend, Groq-powered AI chat integration, and a Python/Scikit-Learn machine learning pipeline for mutation impact prediction.{' '}
-				<span className="text-red-400">Loading project may take up to a minute</span>
+				<span className="text-blue-400">Loading project may take up to a minute</span>
 			</span>
 		),
 		image: '/mutation_bg.png',
@@ -68,7 +68,7 @@ const projects: Project[] = [
 		description: (
 			<span>
 				AI-powered letter prediction using Python & TensorFlow on the EMNIST dataset, with JavaScript frontend, deployed on Google Cloud Run.{' '}
-				<span className="text-red-400">Loading project may take up to a minute</span>
+				<span className="text-blue-400">Loading project may take up to a minute</span>
 			</span>
 		),
 		image: '/pokeball_bg.png',
@@ -89,7 +89,7 @@ const projects: Project[] = [
 		description: (
 			<span>
 				Pygame maze game on a graph data structure, using randomized DFS and A* pathfinding algorithms implemented with stack and priority queues.{' '}
-				<span className="text-red-400">Loading project may take up to a minute</span>
+				<span className="text-blue-400">Loading project may take up to a minute</span>
 			</span>
 		),
 		image: '/mushroom_bg.png',
@@ -138,7 +138,7 @@ export default function ProjectsSection() {
 						/>
 						<div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300" />
 						<div className="absolute inset-0 p-6 flex flex-col justify-end">
-							<h3 className="text-xl mb-2 pixelFont text-5xl md:text-4xl text-teal-400">{project.title}</h3>
+							<h3 className="text-xl mb-2 pixelFont text-5xl md:text-4xl text-blue-400">{project.title}</h3>
 							<p className="text-white-300 mb-4">{project.description}</p>
 							<div className="flex gap-4 flex-wrap">
 								{project.hackathonLink && (
@@ -152,7 +152,7 @@ export default function ProjectsSection() {
 												Hackathon Winner
 											</div>
 										) : (
-											<div className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-teal-400 font-bold border border-teal-400/30">
+											<div className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-blue-400 font-bold border border-blue-400/30">
 												Hackathon Project
 											</div>
 										)}

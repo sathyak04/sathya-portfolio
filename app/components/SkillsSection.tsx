@@ -10,7 +10,7 @@ const skillCategories = [
 				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
 			</svg>
 		),
-		skills: ['JavaScript / TypeScript', 'Python', 'SQL', 'C++', 'C#', 'Java']
+		skills: ['JavaScript / TypeScript', 'Python', 'SQL', 'C / C++', 'C#', 'Java']
 	},
 	{
 		title: "Frameworks & Libraries",
@@ -29,7 +29,7 @@ const skillCategories = [
 				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 			</svg>
 		),
-		skills: ['Google Cloud & Firebase', 'MongoDB', 'PostgreSQL', 'Groq & Vercel AI SDK', 'Git & Linux']
+		skills: ['Google Cloud & Firebase', 'MongoDB', 'PostgreSQL & Neon', 'Groq & Vercel AI SDK', 'Git & Linux']
 	}
 ];
 
