@@ -48,6 +48,15 @@ export default function HeroSection() {
 					Full-Stack Developer & AI Enthusiast
 				</motion.p>
 
+				<motion.p
+					initial={{ y: 50, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 0.8, delay: 0.5 }}
+					className="text-sm md:text-base text-gray-300 mt-4 mb-6 max-w-3xl mx-auto leading-relaxed"
+				>
+					I build high-performance fullstack applications with a focus on AI integration. Currently engineering machine learning pipelines with the Overture Maps Foundation (AWS, Meta, Microsoft) and pursuing a Computer Science degree at UC Santa Cruz.
+				</motion.p>
+
 				{/* Stats (Centered below) */}
 				<motion.div
 					initial={{ y: 50, opacity: 0 }}
