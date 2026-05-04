@@ -14,15 +14,21 @@ export default function Navbar() {
         <motion.nav
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="fixed top-6 left-0 right-0 mx-auto w-fit z-50 flex items-center justify-center gap-6 px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-full shadow-2xl"
+            transition={{ duration: 0.6, delay: 3.4, ease: 'easeOut' }}
+            className="fixed left-0 right-0 mx-auto w-fit flex items-center justify-center gap-6 px-8 py-4 rounded-full shadow-2xl"
+            style={{
+                top: 'calc(var(--frame-width) + 1rem)',
+                zIndex: 26,
+                background: 'var(--color-secondary)',
+                border: '1px solid var(--color-secondary)',
+            }}
         >
             {/* Global Gradient Definition for Navbar SVG Icons */}
             <svg width="0" height="0" className="absolute">
                 <defs>
                     <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#2563eb" /> {/* blue-600 */}
-                        <stop offset="100%" stopColor="#60a5fa" /> {/* blue-400 */}
+                        <stop offset="0%" stopColor="#22c55e" />
+                        <stop offset="100%" stopColor="#86efac" />
                     </linearGradient>
                 </defs>
             </svg>
