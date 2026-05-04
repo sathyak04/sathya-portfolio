@@ -31,8 +31,17 @@ export default function MinimalModernPortfolio() {
 					style={{ textDecoration: 'underline', color: 'rgba(255,255,255,0.85)' }}
 				>
 					Antoine Wodniack&apos;s AW-2025-Portfolio
-				</a>{' '}
-				(CC BY-NC 4.0)
+				</a>
+				, licensed under{' '}
+				<a
+					href="https://creativecommons.org/licenses/by-nc/4.0/"
+					target="_blank"
+					rel="noopener noreferrer license"
+					style={{ textDecoration: 'underline', color: 'rgba(255,255,255,0.85)' }}
+				>
+					CC BY-NC 4.0
+				</a>
+				. Adapted with modifications.
 			</footer>
 		</div>
 	);
